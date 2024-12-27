@@ -134,5 +134,33 @@ int main()
     delete arcGraph;
     delete arcGraphCopy;
 
+    // All types from list
+
+    listGraph = new ListGraph(6);
+    fillGraph(listGraph);
+    BFS(listGraph, 0, [](int i)
+        { std::cout << i << ' '; });
+    std::cout << std::endl;
+
+    matrixGraph = new MatrixGraph(*listGraph);
+    BFS(matrixGraph, 0, [](int i)
+        { std::cout << i << ' '; });
+    std::cout << std::endl;
+
+    setGraph = new SetGraph(*matrixGraph);
+    BFS(setGraph, 0, [](int i)
+        { std::cout << i << ' '; });
+    std::cout << std::endl;
+
+    arcGraph = new ArcGraph(*setGraph);
+    BFS(arcGraph, 0, [](int i)
+        { std::cout << i << ' '; });
+    std::cout << std::endl;
+
+    delete listGraph;
+    delete matrixGraph;
+    delete setGraph;
+    delete arcGraph;
+
     return 0;
 }
